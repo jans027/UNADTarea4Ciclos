@@ -1,0 +1,31 @@
+
+# Definimos la función
+def calcular_descuento_caminata():
+    print("Bienvenido a la agencia de caminantes El Sendero")
+    # Solicitamos la cantidad de personas para descuento
+    while True:
+        try:
+            personas = int(input("Ingrese la cantidad de personas en el grupo: "))
+            if personas >= 2:  # Mínimo 2 personas para aplicar descuentos
+                break
+            else:
+                print("Error: El grupo debe tener al menos 2 personas para optar a descuentos.")
+        except ValueError:
+            print("Error: Debe ingresar un número entero válido.")
+
+    # Calcular el descuento según la tabla
+    if 2 <= personas <= 3:
+        descuento = 12
+    elif 4 <= personas <= 8:
+        descuento = 18
+    else:
+        descuento = 22
+
+    # Mostramos los resultados
+    print(f"\nPara un grupo de {personas} personas:")
+    print(f"Descuento aplicable: {descuento}%")
+
+    return descuento
+
+# Llamamos la función
+calcular_descuento_caminata()
