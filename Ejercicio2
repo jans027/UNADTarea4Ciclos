@@ -1,0 +1,47 @@
+# Mensaje de bienvenida
+print("Bienvenido al sistema de cálculo de comisiones de Tienda Byte")
+
+# Configuración del ciclo principal
+continuar = True # variable que controla el bucle principal.
+while continuar:  # ejecutará el código mientras sea True.
+    
+    # Validamos la entrada de ventas
+
+    while True:
+        try:
+            ventas = int(input("\nIngrese el monto total de ventas del vendedor: $"))
+            if ventas >= 0:
+                break
+            else:
+                print("Error: El monto no puede ser negativo. Intente nuevamente.")
+        except ValueError:
+            print("Error: Debe ingresar un valor numérico entero. Intente nuevamente.")
+
+    # Calcular la comisión según el rango de ventas
+    if ventas <= 1000000:
+        porcentaje = 7
+    elif ventas <= 2000000:
+        porcentaje = 10
+    else:
+        porcentaje = 12
+
+    # Cálculamos la comisión
+    comision = int(ventas * porcentaje / 100)  # Convertimos a entero
+
+    # Mostramos los resultados obtenidos
+    print(f"\nResumen de comisiones:")
+    print(f"- Rango de ventas: ${ventas:,}")
+    print(f"- Porcentaje de comisión: {porcentaje}%")
+    print(f"- Comisión obtenida: ${comision:,}")
+
+    # Preguntamos si  se desea registrar otro vendedor
+    while True:
+        respuesta = input("\n¿Desea registrar otro vendedor? (s/n): ").lower()
+        if respuesta in ['s', 'n']:
+            break
+        else:
+            print("Error: Por favor ingrese 's' para sí o 'n' para no.")
+
+    if respuesta == 'n':
+        continuar = False
+        print("\nGracias por usar nuestro programa")
