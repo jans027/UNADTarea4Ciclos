@@ -1,0 +1,45 @@
+# Mensaje de Bienvenida
+print("Bienvenido a la tienda Sports - Promoción 25% de descuento")
+
+# Inicializamos las listas vacias
+# para guardar los precios originales, descuentos y precios con descuento
+
+PrecioOriginal = []
+Descuento25Porciento = []
+precioConDescuento = []
+
+# Ingresamos los Datos (Ciclo for)
+# Se solicita el ingreso de 10 precios
+# y se valida que sean mayores a 0
+# y que sean valores numéricos
+for i in range(1, 11):
+    
+    # Validación de Entrada (Ciclo while True)
+    while True:
+        try:
+            precio = float(input(f"Ingrese el precio {i}: $"))
+            if precio > 0:
+                # Convertimos a enteros y guardamos en las listas
+                precioSinDecimal = int(precio)
+                descuentoSinDecimal = int(precio * 0.25)
+                precioDescuentoSinDecimal = int(precio * 0.75)
+                
+                PrecioOriginal.append(precioSinDecimal)
+                Descuento25Porciento.append(descuentoSinDecimal)
+                precioConDescuento.append(precioDescuentoSinDecimal)
+                break
+            else:
+                print("El precio debe ser mayor a 0. Intente nuevamente.")
+        except ValueError:
+            print("Debe ingresar un valor numérico. Intente nuevamente.")
+
+# Calculamos los totales (en enteros)
+totalOriginal = sum(PrecioOriginal)
+totalDescuentos = sum(Descuento25Porciento)
+totalConDescuento = sum(precioConDescuento)
+
+# mostarmos los resultados
+print("\nTotales:")
+print(f"Total de la Venta: ${totalOriginal:,}")
+print(f"Total descuento del 25%: ${totalDescuentos:,}")
+print(f"Total a pagar con los descuentos: ${totalConDescuento:,}")
