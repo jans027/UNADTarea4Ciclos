@@ -1,0 +1,36 @@
+# Inicialización de contadores en cero
+invencibles = 0
+gacelas = 0
+
+# Mensajes de bienvenida
+print("Bienvenido al sistema de encuesta del torneo de fútbol")
+print("Por favor, ingrese la preferencia de cada uno de los 10 espectadores\n para Invencibles ingrese i para gacelas ingrese g")
+
+#  Ciclo for para encuestar a los 10 espectadores
+for espectador in range(1, 11):
+    while True:  # Ciclo while para validar la entrada
+        #  Pregunta a cada espectador
+        preferencia = input(f"Espectador {espectador}: ¿Prefiere 'Los Invencibles' o 'Las Gacelas'? ").lower()
+        
+        #  Validación y conteo de entradas
+        if preferencia in ["i"]:
+            invencibles += 1
+            break
+        elif preferencia in ["g"]:
+            gacelas += 1
+            break
+        else:
+            print("Opción no válida. Por favor ingrese 'Los Invencibles' o 'Las Gacelas'.")
+
+# Calculamos y mostramos resultados finales
+print("\nRESULTADOS")
+print(f"Cantidad de hinchas de Los Invencibles: {invencibles}")
+print(f"Cantidad de hinchas de Las Gacelas: {gacelas}")
+
+# Mostramos resultados finales
+if invencibles > gacelas:
+    print("\n¡Los Invencibles tienen más hinchas!")
+elif gacelas > invencibles:
+    print("\n¡Las Gacelas tienen más hinchas")
+else:
+    print("\n¡Ambos tienen la misma cantidad de hinchas!")
